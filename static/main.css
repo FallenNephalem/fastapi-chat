@@ -1,0 +1,7 @@
+.scroll-wrapper {
+  min-height: 40vh;
+  max-height: 40vh;
+  overflow: auto;
+  display: flex;
+  flex-direction: column-reverse;
+}

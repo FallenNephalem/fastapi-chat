@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <link href="{{ url_for('static', path='/main.css') }}" rel="stylesheet">
+  <title>Chat</title>
+</head>
+<body>
+  <div class="container mt-3">
+    <div class="row mb-4">
+      <div class="input-group col-md-4 mt-2">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="chatId">Chat ID</span>
+        </div>
+        <input name="chat_id" id="chatIdInput" value="default" type="text" class="form-control" placeholder="Chat ID" aria-label="Chat ID" aria-describedby="chatId">
+      </div>
+      <div class="input-group col-md-4 mt-2">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="username">Username</span>
+        </div>
+        <input name="username" id="usernameInput" value="" type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="username">
+      </div>
+      <div class="col-md-3 mt-2">
+        <input onclick=connect() id="connect" class="btn btn-block btn-dark" type="submit" value="Enter">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-8 bg-light p-3 rounded border border-secondary">
+          <div class="scroll-wrapper" id="chat"></div>
+          <div class="row">
+            <div class="col-md-10">
+              <input disabled type="text" autocomplete="off" class="form-control" placeholder="Message" aria-label="Message" id="chatInput">
+            </div>
+            <div class="col-md-2">
+              <button disabled onclick=handleChatMessage() id="sendMessage" type="button" class="btn btn-block btn-dark">Send</button>
+            </div>
+        </div>
+      </div>
+      <div class="col-md-3 bg-light ml-3 rounded border border-secondary">
+        <h3 class="p-3">Participants</h3>
+        <hr>
+        <div class="col-md" id="participantList"></div>
+      </div>
+    </div>
+  </div>
+  <script src="{{ url_for('static', path='/main.js') }}" ></script>
+</body>
+</html>
